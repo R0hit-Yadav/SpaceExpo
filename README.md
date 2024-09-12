@@ -8,10 +8,12 @@ venv/Scripts/activate
 (env) after activate 
 
 --for Django
+
 cd spaceinfo             
 python manage.py runserver
 
 --for React (in diffrent terminal)
+
 cd space-frontend
 npm start 
 
