@@ -1,0 +1,38 @@
+SpaceExpo- It is Space Information website that give all information about space and give 
+            extra knowlage about space that you did not know 
+
+
+=>Home Page
+-in home page one top cureosl and webiste logo and some infromation is also provided
+
+=>Planet 
+-in planet section in card form all planet will show and after click evry planet all planet 
+3d model will show that give interactive knowlage and under model some information about planet 
+
+==>History 
+-in History section give history of space what mission are done what we learn from missions and some imp topic 
+
+==>About page 
+-in about page there is info about our website email contects etc 
+-on mail box about that retrive questions form user and give a persnol SpaceExpo emai for see user question and QNA types
+
+==>Profile Page 
+-i profile page user information
+-try to make like add save that store user perticuler blogs or news like bookmark 
+
+==>News & updates
+-in news and updates leatest news about space day by day using nasa or isros API fetch and show in web page 
+-some updates like what should so to batter missions and some fucuture mission etc 
+
+==>AI Chat BOT
+-using gemini API make Ai chatbot that give all answer about space uniquelliy and nice 
+
+
+
+others 
+-signup login that store particuler user data auth 
+-make one fact section that show fact that not all persons know 
+-one model that give 3d presentation how to rocket roud aroud earth and how it will detach 
+-add some reading book or course to get more details about space 
+
+
