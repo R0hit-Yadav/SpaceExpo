@@ -1,5 +1,5 @@
 // SignupLogin.js
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import './SignupLogin.css';
 
@@ -10,12 +10,33 @@ const SignupLogin = () => {
     const [email, setEmail] = useState('');
     const [phone, setPhone] = useState('');
     const [message, setMessage] = useState('');
+    const [csrfToken, setCsrfToken] = useState('');
+
+    // Fetch CSRF token from the Django backend
+    const getCsrfToken = async () => {
+        try {
+            const response = await axios.get('http://127.0.0.1:8000/api/csrf/');
+            setCsrfToken(response.data.csrfToken);
+        } catch (error) {
+            console.error('Error fetching CSRF token', error);
+        }
+    };
+
+    useEffect(() => {
+        getCsrfToken(); // Fetch CSRF token on component mount
+    }, []);
 
     const toggleForm = () => setIsSignup(!isSignup);
 
     const handleLogin = async () => {
         try {
-            const response = await axios.post('http://127.0.0.1:8000/api/login/', { username, password });
+            const response = await axios.post(
+                'http://127.0.0.1:8000/api/login/', 
+                { username, password },
+                {
+                    headers: { 'X-CSRFToken': csrfToken } // Pass CSRF token in the request headers
+                }
+            );
             setMessage(response.data.message);
             if (response.data.message === 'Login successful') {
                 localStorage.setItem('username', username);
@@ -27,15 +48,19 @@ const SignupLogin = () => {
     };
 
     const handleSignup = async () => {
-        console.log({ username, password, email, phone });
         try {
-            const response = await axios.post('http://127.0.0.1:8000/api/signup/', { username, password, email, phone });
+            const response = await axios.post(
+                'http://127.0.0.1:8000/api/signup/', 
+                { username, password, email, phone },
+                {
+                    headers: { 'X-CSRFToken': csrfToken } // Pass CSRF token in the request headers
+                }
+            );
             setMessage(response.data.message);
             if (response.data.message === 'Signup successful') {
                 toggleForm(); 
             }
         } catch (error) {
-            console.error(error);
             setMessage('Signup failed');
         }
     };

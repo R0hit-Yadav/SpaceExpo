@@ -1,38 +1,61 @@
 from rest_framework import viewsets
 from .models import Planet
 from .serializers import PlanetSerializer
-from rest_framework import status, generics
-from rest_framework.response import Response
-from django.contrib.auth import authenticate
-from .models import SignupData
-from .serializers import SignupDataSerializer
+from rest_framework import status
+from django.contrib.auth.models import User
+from django.contrib.auth import login, logout, authenticate
+from django.http import JsonResponse
+from rest_framework import status
+from rest_framework.decorators import api_view
+from django.views.decorators.csrf import ensure_csrf_cookie
 
 class PlanetViewSet(viewsets.ModelViewSet):
     queryset = Planet.objects.all()
     serializer_class = PlanetSerializer
 
-class SignupView(generics.CreateAPIView):
-    queryset = SignupData.objects.all()
-    serializer_class = SignupDataSerializer
-
-    def post(self, request, *args, **kwargs):
-        serializer = self.get_serializer(data=request.data)
-        if serializer.is_valid():
-            serializer.save()
-            return Response({"message": "Signup successful"}, status=status.HTTP_201_CREATED)
-        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
-
-class LoginView(generics.GenericAPIView):
-    def post(self, request, *args, **kwargs):
+@api_view(['POST'])
+def signup(request):
+    if request.method == 'POST':
         username = request.data.get('username')
         password = request.data.get('password')
-        try:
-            user = SignupData.objects.get(username=username, password=password)
-            if user:
-                return Response({"message": "Login successful"}, status=status.HTTP_200_OK)
-        except SignupData.DoesNotExist:
-            return Response({"message": "Invalid credentials"}, status=status.HTTP_401_UNAUTHORIZED)
+        email = request.data.get('email')
+        
+        if User.objects.filter(username=username).exists():
+            return JsonResponse({'error': 'Username already taken'}, status=status.HTTP_400_BAD_REQUEST)
+        
+        user = User.objects.create_user(username=username, password=password, email=email)
+        user.save()
+        return JsonResponse({'message': 'Signup successful'}, status=status.HTTP_201_CREATED)
 
+@api_view(['POST'])
+def login_view(request):
+    if request.method == 'POST':
+        username = request.data.get('username')
+        password = request.data.get('password')
+        user = authenticate(username=username, password=password)
+        if user is not None:
+            login(request, user)
+            return JsonResponse({'message': 'Login successful'}, status=status.HTTP_200_OK)
+        return JsonResponse({'error': 'Invalid credentials'}, status=status.HTTP_401_UNAUTHORIZED)
+
+@api_view(['POST'])
+def logout_view(request):
+    logout(request)
+    return JsonResponse({'message': 'Logged out successfully'}, status=status.HTTP_200_OK)
+
+@ensure_csrf_cookie
+def get_csrf_token(request):
+    return JsonResponse({'message': 'CSRF cookie set'})
+    
+@api_view(['GET'])
+def profile(request):
+    if request.user.is_authenticated:
+        user = request.user
+        return JsonResponse({
+            'username': user.username,
+            'email': user.email,
+        })
+    return JsonResponse({'error': 'Unauthorized'}, status=status.HTTP_401_UNAUTHORIZED)
 
 
 

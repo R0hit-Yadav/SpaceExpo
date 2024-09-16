@@ -1,7 +1,6 @@
 SpaceExpo- It is Space Information website that give all information about space and give 
             extra knowlage about space that you did not know 
 
-
 =>Home Page
 -in home page one top cureosl and webiste logo and some infromation is also provided
 
@@ -26,7 +25,6 @@ SpaceExpo- It is Space Information website that give all information about space
 
 ==>AI Chat BOT
 -using gemini API make Ai chatbot that give all answer about space uniquelliy and nice 
-
 
 
 others 
