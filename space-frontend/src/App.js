@@ -16,6 +16,7 @@ import Uranus from './3D models/Uranus';
 import Venus from './3D models/Venus';
 import LoadingWrapper from './components/Loading';
 import SignupLogin from './components/SignupLogin';
+import SpaceNews from './components/News';
 
 import './App.css';
 
@@ -39,6 +40,7 @@ const App = () => {
                 <Route path="/saturn" element={<Saturn />} />
                 <Route path="/uranus" element={<Uranus />} />
                 <Route path="/Venus" element={<Venus />} />
+                <Route path="/news" element={<SpaceNews/>}/>
             </Routes>
             </LoadingWrapper>
             <AiButton />
