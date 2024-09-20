@@ -21,7 +21,7 @@ const Planet = () => {
                 <div key={planet.id} className="planet-card">
                     <img src={`${planet.image}`} alt={planet.name} />
                     <h2>{planet.name}</h2>
-                    <p>{planet.description}</p>
+                    <p>{planet.info}</p>
                     <Link to={`/${planet.name.toLowerCase()}`}>
                         <button className="know-more-button">Know More</button>
                     </Link>
