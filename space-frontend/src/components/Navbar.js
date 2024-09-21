@@ -12,9 +12,6 @@ const Navbar = () => {
         }        
     }, []);
     
-    
-    
-
     const getUser = async() => {
   
             const response = await api.get('/api/user/');
@@ -41,14 +38,8 @@ const Navbar = () => {
                 )}
                 
             </ul>
-            
-            
-            
         </nav>
 );
 }
-
-
-
 export default Navbar;
 
