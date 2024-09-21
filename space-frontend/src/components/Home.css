@@ -47,3 +47,21 @@ p {
     border-radius: 10px; 
     border: 3px solid #0f3460; 
 }
+
+.video-section {
+    text-align: center;
+    margin-top: 30px;
+    padding: 20px;
+}
+
+.video-section h2 {
+    color: #ffffff;
+    margin-bottom: 20px;
+    font-size: 2rem;
+}
+
+.explore-video {
+    width: 1300px; 
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.8);
+}

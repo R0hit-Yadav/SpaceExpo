@@ -14,6 +14,14 @@ const Home = () => {
                 <SolarSystem/>
                 <h1>Solar System</h1>
             </div>
+            <div className="video-section">
+                <h2>Explore Our Galaxy</h2>
+                <video controls className="explore-video" autoPlay loop muted>
+                    <source src="/static/images/Rocket.mp4" type="video/mp4" />
+                </video>
+                <h1>Rockets</h1>
+                <button className="know-more-button">Know More</button>
+            </div>
         </div>
     );
 }
