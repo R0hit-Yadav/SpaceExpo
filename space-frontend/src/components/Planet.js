@@ -1,13 +1,13 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import axios from 'axios';
 import './Planet.css';
+import api from '../api';
 
 const Planet = () => {
     const [planets, setPlanets] = useState([]);
 
     useEffect(() => {
-        axios.get('http://127.0.0.1:8000/api/planets/')
+        api.get('/planets')
             .then(res => setPlanets(res.data))
             .catch(err => console.error(err));
     }, []);

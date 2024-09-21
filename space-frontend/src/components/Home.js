@@ -1,8 +1,12 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import './Home.css';
 import Carousel from './Carousel';
-
+import Navbar from './Navbar';
+// import { Navigate } from 'react-router-dom';
+// import { useNavigate } from 'react-router-dom';
 const Home = () => {
+    
+    
     return (
         <div>
             <Carousel />
