@@ -1,0 +1,26 @@
+.solar-system {
+    position: relative;
+    width: 100%; /* Full width of the container */
+    height: 70vh; /* Reduced height to fit within the home page layout */
+    overflow: hidden; 
+    display: flex;
+    justify-content: center; /* Center horizontally */
+    align-items: center; /* Center vertically */
+    margin-top: 20px; /* Add some space between content above */
+}
+
+.model-container {
+    position: relative;
+    width: 70%; /* Adjust width to center the model and fit within the home page */
+    height: 100%; 
+}
+
+.solar-system video {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%; 
+    height: 100%; 
+    object-fit: cover; 
+    z-index: -1; 
+}
