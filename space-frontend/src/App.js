@@ -1,5 +1,5 @@
 import React from "react";
-import { BrowserRouter as Router, Route, Routes, useNavigate } from "react-router-dom";
+import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import Navbar from "./components/Navbar";
 import Home from "./components/Home";
 import Planet from "./components/Planet";
@@ -51,9 +51,7 @@ const App = () => {
             <Route path="/Venus" element={<Venus />} />
             <Route path="/news" element={<SpaceNews />} />
             <Route path="/login" element={<Login />} />
-
             <Route path="/logout" element={<Logout />} />
-
             <Route path="/register" element={<Register />} />
 
           

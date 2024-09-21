@@ -1,22 +1,22 @@
 import React, { useRef, useState, useEffect } from 'react';
 import { Canvas, useFrame } from '@react-three/fiber';
 import { OrbitControls, useGLTF } from '@react-three/drei';
-import axios from 'axios';
+import api from '../api';
 import './Earth.css';
-
 function Earth() {
-  const [earthDescription, setEarthDescription] = useState('');
+  const [Description, setDescription] = useState('');
 
   useEffect(() => {
-    axios.get('http://127.0.0.1:8000/api/planets/')
+    api.get('/planets')
       .then(res => {
         const earth = res.data.find(planet => planet.name === 'Earth'); // Find Earth description
         if (earth) {
-          setEarthDescription(earth.description); // Set description of Earth
+          setDescription(earth.description); // Set description of Earth
         }
       })
       .catch(err => console.error(err));
   }, []);
+
 
   const Model = () => {
     const { scene } = useGLTF('/Earth.glb');
@@ -47,10 +47,9 @@ function Earth() {
       </div>
       <div className="planet-description">
         <h2>Earth Description</h2>
-        <p>{earthDescription}</p>
+        <p>{Description}</p>
       </div>
     </div>
   );
 }
-
 export default Earth;
