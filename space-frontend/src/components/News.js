@@ -23,7 +23,7 @@ const SpaceNews = () => {
                 setError(err);
                 setLoading(false);
             });
-    }, [date]);
+    }, [NASA_APOD_URL]);
 
     const handlePreviousDay = () => {
         const previousDate = new Date(date);
