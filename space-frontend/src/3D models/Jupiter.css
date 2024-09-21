@@ -1,16 +1,19 @@
 .jupiter {
   position: relative;
-  width: 99.2vw;  
+  width: 100vw;  
   height: 100vh; 
+  overflow: hidden; 
   display: flex;
-  flex-direction: column;
-  align-items: center;    
+}
+
+.content {
+  display: flex;
+  width: 100%;
 }
 
 .model-container {
-  position: relative;
-  width: 900px; 
-  height: 900px; 
+  flex: 1; 
+  height: 100vh; 
 }
 
 .jupiter video {
@@ -24,26 +27,28 @@
 }
 
 .planet-description {
-  background: rgba(0, 0, 0, 0.9); /* Darker background */
-  border: 2px solid #00ff99; /* Neon-like border */
+  flex: 1; 
+  background: rgba(0, 0, 0, 0.9); 
+  border: 2px solid #00ff99; 
   padding: 20px;
   border-radius: 10px;
-  max-width: 300px;
-  box-shadow: 0 0 15px rgba(0, 255, 153, 0.5); /* Glow effect */
-  backdrop-filter: blur(10px); /* Blur effect for depth */
-  margin-top: 20px; /* Space between model and description */
+  max-width: 400px; 
+  box-shadow: 0 0 15px rgba(0, 255, 153, 0.5); 
+  backdrop-filter: blur(10px); 
+  margin-right: 20px;
+  margin-bottom: 200px;
 }
 
 .planet-description h2 {
   font-size: 22px;
   margin-bottom: 10px;
-  color: #00ff99; /* Neon green color */
-  text-shadow: 1px 1px 5px rgba(0, 255, 153, 0.8); /* Text glow */
+  color: #00ff99; 
+  text-shadow: 1px 1px 5px rgba(0, 255, 153, 0.8); 
 }
 
 .planet-description p {
   font-size: 16px;
   line-height: 1.5;
-  color: #ffffff; /* White text for contrast */
-  text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.8); /* Slight shadow for depth */
+  color: #ffffff; 
+  text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.8);
 }

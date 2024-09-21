@@ -1,4 +1,4 @@
-.saturn {
+.mars {
     position: relative;
     width: 100vw;  
     height: 100vh; 
@@ -16,7 +16,7 @@
     height: 100vh; 
   }
   
-  .saturn video {
+  .mars video {
     position: absolute;
     top: 0;
     left: 0;

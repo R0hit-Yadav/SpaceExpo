@@ -1,18 +1,21 @@
 import React, { useState, useEffect } from 'react';
-import axios from 'axios';
+import api from '../api';
 import './Profile.css';
 
 const Profile = () => {
     const [userData, setUserData] = useState({});
 
     useEffect(() => {
-        axios.get('/api/profile/')
-            .then((response) => {
+        const fetchUserData = async () => {
+            try {
+                const response = await api.get('/api/user/');
                 setUserData(response.data);
-            })
-            .catch((error) => {
+            } catch (error) {
                 console.error('Error fetching user data:', error);
-            });
+            }
+        };
+
+        fetchUserData();
     }, []);
 
     return (
@@ -25,3 +28,5 @@ const Profile = () => {
 };
 
 export default Profile;
+
+

@@ -10,9 +10,9 @@ function Jupiter() {
   useEffect(() => {
     api.get('/planets')
       .then(res => {
-        const earth = res.data.find(planet => planet.name === 'Jupiter'); 
-        if (earth) {
-          setDescription(earth.description); 
+        const p = res.data.find(planet => planet.name === 'Jupiter'); 
+        if (p) {
+          setDescription(p.description); 
         }
       })
       .catch(err => console.error(err));

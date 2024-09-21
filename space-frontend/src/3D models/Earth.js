@@ -28,7 +28,7 @@ function Earth() {
       }
     });
 
-    return <primitive ref={modelRef} object={scene} scale={0.007} />;
+    return <primitive ref={modelRef} object={scene} scale={0.006} position={[0, 1, 0]} />;
   };
 
   return (

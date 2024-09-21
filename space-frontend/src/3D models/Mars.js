@@ -2,16 +2,16 @@ import React, { useRef, useState, useEffect } from 'react';
 import { Canvas, useFrame } from '@react-three/fiber';
 import { OrbitControls, useGLTF } from '@react-three/drei';
 import api from '../api';
-import './Mercury.css';
-function Mercury() {
+import './Mars.css';
+function Mars() {
   const [Description, setDescription] = useState('');
 
   useEffect(() => {
     api.get('/planets')
       .then(res => {
-        const p = res.data.find(planet => planet.name === 'Mercury'); // Find Earth description
+        const p = res.data.find(planet => planet.name === 'Mars'); 
         if (p) {
-          setDescription(p.description); // Set description of Earth
+          setDescription(p.description); 
         }
       })
       .catch(err => console.error(err));
@@ -19,7 +19,7 @@ function Mercury() {
 
 
   const Model = () => {
-    const { scene } = useGLTF('/Mercury.glb');
+    const { scene } = useGLTF('/Mars.glb');
     const modelRef = useRef();
 
     useFrame(() => {
@@ -32,7 +32,7 @@ function Mercury() {
   };
 
   return (
-    <div className="earth">
+    <div className="mars">
       <video autoPlay loop muted onLoadedData={() => console.log("Video loaded")}>
           <source src="/static/images/stars.mp4" type="video/mp4" />
       </video>
@@ -46,10 +46,10 @@ function Mercury() {
       </Canvas>
       </div>
       <div className="planet-description">
-        <h2>Mercury Description</h2>
+        <h2>Mars Description</h2>
         <p>{Description}</p>
       </div>
     </div>
   );
 }
-export default Mercury;
+export default Mars;
