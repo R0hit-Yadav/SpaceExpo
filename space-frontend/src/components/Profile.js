@@ -1,19 +1,15 @@
 import React, { useState, useEffect } from 'react';
-import axios from 'axios';
 import './Profile.css';
+import api from '../api';
 
 const Profile = () => {
     const [userData, setUserData] = useState({});
 
-    useEffect(() => {
-        axios.get('/api/profile/')
-            .then((response) => {
-                setUserData(response.data);
-            })
-            .catch((error) => {
-                console.error('Error fetching user data:', error);
-            });
-    }, []);
+    const getUser = async () => {
+        const response = await api.get('/api/user/');
+        setUserData(response.data)
+      }
+      useEffect(()=> {getUser()},[])
 
     return (
         <div className="profile-container">
@@ -25,3 +21,4 @@ const Profile = () => {
 };
 
 export default Profile;
+

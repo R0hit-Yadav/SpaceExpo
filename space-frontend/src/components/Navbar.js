@@ -7,13 +7,14 @@ const Navbar = () => {
 
     const Login1 = () => {
         return (<>
-            <li><Link to="/profile">Profile</Link></li>
             <li><Link onClick={()=>setExtra(<Logout />)} to="/login">Login</Link></li>
             {/* <li><Link to="/register">Register</Link></li> */}
         </>)}
 
     const Logout = () => {
-        return (<> <li>
+        return (<> 
+            <li><Link to="/profile">Profile</Link></li>
+        <li>
             <Link onClick={()=>setExtra(<Login1 />)} to={'/logout'}>Logout</Link>
         </li>
         </>)}
