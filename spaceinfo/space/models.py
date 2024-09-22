@@ -8,3 +8,10 @@ class Planet(models.Model):
 
     def __str__(self):
         return self.name
+    
+class Rocket(models.Model):
+    name = models.CharField(max_length=100)
+    info = models.TextField()
+
+    def __str__(self):
+        return self.name
