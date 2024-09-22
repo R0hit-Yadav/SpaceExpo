@@ -8,6 +8,7 @@ import About from "./components/About";
 import AI from "./components/AI";
 import AiButton from "./components/AiButton";
 import Earth from "./3D models/Earth";
+import Rocket from "./components/Rocket";
 import Jupiter from "./3D models/Jupiter";
 import Mercury from "./3D models/Mercury";
 import Neptune from "./3D models/Neptune";
@@ -53,6 +54,7 @@ const App = () => {
             <Route path="/news" element={<SpaceNews />} />
             <Route path="/login" element={<Login />} />
             <Route path="/logout" element={<Logout />} />
+            <Route path="/rocket" element={<Rocket />} />
             <Route path="/register" element={<Register />} />
 
           

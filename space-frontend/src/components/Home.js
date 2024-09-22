@@ -1,4 +1,5 @@
-import React, { useEffect } from 'react';
+import React from 'react';
+import { Link } from 'react-router-dom';
 import './Home.css';
 import Carousel from './Carousel';
 import SolarSystem from '../3D models/SolarSystem';
@@ -20,7 +21,9 @@ const Home = () => {
                     <source src="/static/images/Rocket.mp4" type="video/mp4" />
                 </video>
                 <h1>Rockets</h1>
+                <Link to="/rocket">
                 <button className="know-more-button">Know More</button>
+                </Link>
             </div>
         </div>
     );
