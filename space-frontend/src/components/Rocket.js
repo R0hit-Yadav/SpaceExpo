@@ -21,7 +21,7 @@ const Planet = () => {
                 <div key={rocket.id} className="rocket-card">
                     <img src={`${rocket.image}`} alt={rocket.name} />
                     <h2>{rocket.name}</h2>
-                    <Link to={`/${rocket.name.toLowerCase()}`}>
+                    <Link to={rocket.name.toLowerCase().replace(/\s/g, '')}>
                         <button className="know-more-button">Know More</button>
                     </Link>
                 </div>
@@ -31,3 +31,4 @@ const Planet = () => {
 }
 
 export default Planet;
+

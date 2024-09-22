@@ -1,3 +1,4 @@
+import { Navigate } from "react-router-dom";
 import React from "react";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import Navbar from "./components/Navbar";
@@ -21,8 +22,10 @@ import SpaceNews from "./components/News";
 import Login from "./components/Login";
 import Register from "./components/Register";
 import ProtectedRoute from "./components/ProtectedRoute";
-import { Navigate } from "react-router-dom";
-
+import Falcon from "./3D models/Falcon";
+import Saturnv from "./3D models/SaturnV";
+import Gslv from "./3D models/Gslv";
+import Pslv from "./3D models/Pslv";
 import "./App.css";
 
 function Logout() {
@@ -56,6 +59,10 @@ const App = () => {
             <Route path="/logout" element={<Logout />} />
             <Route path="/rocket" element={<Rocket />} />
             <Route path="/register" element={<Register />} />
+            <Route path="/rocket/spacexfalcon9" element={<Falcon />} />
+            <Route path="/rocket/saturnv" element={<Saturnv />} />
+            <Route path="/rocket/gslv" element={<Gslv />} />
+            <Route path="/rocket/pslv" element={<Pslv />} />
 
           
         </Routes>
