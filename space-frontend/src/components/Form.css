@@ -6,43 +6,64 @@
   margin: 50px auto;
   padding: 20px;
   border-radius: 8px;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* Deeper shadow for better contrast */
+  background-color: #c5b3b0; /* Dark brown background */
   max-width: 400px;
 }
 
 input.form-input.required:invalid {
-  border-color: red;
-  border-width: 2px; /* Adjust the border width as needed */
-  border-style: solid; /* Set the border style to solid */
-}
-
-/* You can also add additional styles to the input field when it's valid */
-input.form-input.required:valid {
-  border-color: green;
+  border-color: #d32f2f; /* Darker red for error */
   border-width: 2px;
   border-style: solid;
 }
+
+input.form-input.required:valid {
+  border-color: #ffa726; /* Orange when valid */
+  border-width: 2px;
+  border-style: solid;
+}
+
 .form-input {
   width: 90%;
   padding: 10px;
   margin: 10px 0;
-  border: 1px solid #ccc;
+  border: 1px solid #6d4c41; /* Light brown border */
   border-radius: 4px;
+  background-color: #fbe9e7; /* Light beige input background */
+  color: #3e2723; /* Dark brown text */
   box-sizing: border-box;
+}
+
+.form-input:focus {
+  outline: none;
+  border-color: #ff9800; /* Bright orange when focused */
+  box-shadow: 0 0 8px rgba(255, 152, 0, 0.5); /* Glowing orange focus */
 }
 
 .form-button {
   width: 95%;
   padding: 10px;
   margin: 20px 0;
-  background-color: #007bff;
+  background-color: #ff9800; /* Orange button */
   color: white;
   border: none;
   border-radius: 4px;
   cursor: pointer;
-  transition: background-color 0.2s ease-in-out;
+  transition: background-color 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
 }
 
 .form-button:hover {
-  background-color: #0056b3;
+  background-color: #e65100; /* Darker orange on hover */
+  box-shadow: 0 0 10px rgba(255, 152, 0, 0.6); /* Glowing effect on hover */
+}
+
+.form-container h2 {
+  color: #ffcc80; /* Soft orange for heading text */
+  font-size: 2rem;
+  margin-bottom: 20px;
+}
+
+::placeholder {
+  color: #795548; /* Light brown for placeholder text */
+  opacity: 0.7;
 }
