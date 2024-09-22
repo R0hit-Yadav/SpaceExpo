@@ -4,28 +4,42 @@ import './Navbar.css';
 import api from '../api';
 
 const Navbar = () => {
-    const [userDetail, setUserDetail] = useState({}); 
-    
-    useEffect(() => {
-        if (localStorage.getItem('access')) {
-            getUser();
+
+    const Login1 = () => {
+        return (<>
+            <li><Link onClick={()=>setExtra(<Logout />)} to="/login">Login</Link></li>
+            <li><Link to="/register">Register</Link></li>
+        </>)}
+
+    const Logout = () => {
+        return (<> <li>
+            <Link onClick={()=>setExtra(<Login1 />)} to={'/logout'}>Logout</Link>
+        </li>
+            
+        </>)}
+        
+    const [userDetail, setUserDetail] = useState({}) 
+
+  
+
+    const [extra, setExtra] = useState(<Login1 />)
+    // const [methode,setmethode] = useState("login")
+    useEffect( () => {
+        if(localStorage.getItem('access')){
+            getUser()
+            setExtra(<Logout />)
+            // setmethode("logout")
         }        
     }, []);
+    
 
-    const getUser = async () => {
-        try {
+    const getUser = async() => {
+  
             const response = await api.get('/api/user/');
-            setUserDetail(response.data);
-        } catch (error) {
-            console.error('Error fetching user data:', error);
+            setUserDetail(response.data)
         }
-    };
-
-    const handleLogout = () => {
-        localStorage.clear();
-        setUserDetail({});
-    };
-
+  
+    
     return (
         <nav className="navbar">
             <div className="navbar-brand">SpaceExpo</div>
@@ -33,21 +47,9 @@ const Navbar = () => {
                 <li><Link to="/">Home</Link></li>
                 <li><Link to="/planet">Planet</Link></li>
                 <li><Link to="/about">About</Link></li>
-                {userDetail && userDetail.username ? (
-                    <>
-                        <li>
-                            <Link to="/profile">{userDetail.username}</Link>
-                        </li>
-                        <li>
-                            <Link onClick={handleLogout} to="/">Logout</Link>
-                        </li>
-                    </>
-                ) : (
-                    <li><Link to="/login">Login/Register</Link></li> // Updated Link
-                )}
+                {extra}
             </ul>
         </nav>
-    );
-};
-
+);
+}
 export default Navbar;

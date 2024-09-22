@@ -6,6 +6,6 @@ from . import views
 
 urlpatterns = [
     # path('admin/', admin.site.urls),
-    # path('singUp/', views.CreateUserView.as_view(), name='singUp'),
+    path('singUp/', views.CreateUserView.as_view(), name='singUp'),
     
 ]
