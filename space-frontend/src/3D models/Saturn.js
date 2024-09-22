@@ -12,7 +12,8 @@ function Saturn() {
       .then(res => {
         const p = res.data.find(planet => planet.name === 'Saturn'); 
         if (p) {
-          setDescription(p.description); 
+          const formattedDescription = p.description.replace(/\. /g, '.\n');
+          setDescription(formattedDescription);
         }
       })
       .catch(err => console.error(err));

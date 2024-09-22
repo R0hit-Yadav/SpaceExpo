@@ -11,7 +11,8 @@ function Mercury() {
       .then(res => {
         const p = res.data.find(planet => planet.name === 'Mercury'); // Find Earth description
         if (p) {
-          setDescription(p.description); // Set description of Earth
+          const formattedDescription = p.description.replace(/\. /g, '.\n');
+          setDescription(formattedDescription);
         }
       })
       .catch(err => console.error(err));

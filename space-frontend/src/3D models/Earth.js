@@ -9,9 +9,10 @@ function Earth() {
   useEffect(() => {
     api.get('/planets')
       .then(res => {
-        const earth = res.data.find(planet => planet.name === 'Earth'); // Find Earth description
-        if (earth) {
-          setDescription(earth.description); // Set description of Earth
+        const p = res.data.find(planet => planet.name === 'Earth'); 
+        if (p) {
+          const formattedDescription = p.description.replace(/\. /g, '.\n');
+          setDescription(formattedDescription);
         }
       })
       .catch(err => console.error(err));
