@@ -6,20 +6,20 @@
   margin: 50px auto;
   padding: 20px;
   border-radius: 8px;
-  box-shadow: 0 0 15px rgba(0, 0, 0, 0.7); /* Deeper shadow for a space theme */
-  background-color: #0d0d2b; /* Dark space-themed background */
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.7);
+  background-color: #0d0d2b;
   max-width: 400px;
   font-family: 'Roboto', sans-serif;
 }
 
 input.form-input.required:invalid {
-  border-color: #d32f2f; /* Darker red for error */
+  border-color: #d32f2f;
   border-width: 2px;
   border-style: solid;
 }
 
 input.form-input.required:valid {
-  border-color: #ff9800; /* Orange when valid */
+  border-color: #ff9800;
   border-width: 2px;
   border-style: solid;
 }
@@ -28,45 +28,46 @@ input.form-input.required:valid {
   width: 90%;
   padding: 10px;
   margin: 10px 0;
-  border: 1px solid #333; /* Darker borders for space aesthetic */
+  border: 1px solid #333;
   border-radius: 4px;
-  background-color: #1a1a3b; /* Dark space-gray input background */
-  color: #ffffff; /* White text for contrast */
+  background-color: #1a1a3b;
+  color: #ffffff;
   box-sizing: border-box;
 }
 
 .form-input:focus {
   outline: none;
-  border-color: #ff9800; /* Bright orange focus */
-  box-shadow: 0 0 8px rgba(255, 152, 0, 0.5); /* Glowing orange focus effect */
+  border-color: #ff9800;
+  box-shadow: 0 0 8px rgba(255, 152, 0, 0.5);
 }
 
 .form-button {
   width: 95%;
   padding: 10px;
   margin: 20px 0;
-  background-color: #ff9800; /* Orange button */
+  background-color: #ff9800;
   color: white;
   border: none;
   border-radius: 5px;
   cursor: pointer;
   transition: background-color 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
-  box-shadow: 0 0 10px rgba(255, 152, 0, 0.5); /* Glowing effect */
+  box-shadow: 0 0 10px rgba(255, 152, 0, 0.5);
 }
 
 .form-button:hover {
-  background-color: #e68a00; /* Darker orange on hover */
-  box-shadow: 0 0 15px rgba(255, 152, 0, 0.8); /* Enhanced glow on hover */
+  background-color: #e68a00;
+  box-shadow: 0 0 15px rgba(255, 152, 0, 0.8);
 }
 
 .form-container h2 {
-  color: #ff9800; /* Soft orange for heading */
+  color: #ff9800;
   font-size: 2rem;
   margin-bottom: 20px;
-  text-shadow: 0 0 10px #ff9800; /* Glowing space-themed text */
+  text-shadow: 0 0 10px #ff9800;
 }
 
 ::placeholder {
-  color: #999; /* Light gray placeholder */
+  color: #999;
   opacity: 0.7;
 }
+
