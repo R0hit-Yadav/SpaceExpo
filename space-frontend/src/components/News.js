@@ -8,21 +8,31 @@ const SpaceNews = () => {
     const [error, setError] = useState(null);
     const [date, setDate] = useState(new Date().toISOString().split('T')[0]);
 
-    const NASA_API_KEY = 'HCgMmdNrzBBEaqzBsTc5oqqJnj8gumhdmr1AFSZQ';
+    const NASA_API_KEY = 'dkBGYPgYW529INwiwKoOP2K7dQQh35lFdWemyjpd';
     const NASA_APOD_URL = `https://api.nasa.gov/planetary/apod?api_key=${NASA_API_KEY}&date=${date}`;
 
-    useEffect(() => {
+    const fetchData = (fetchDate) => {
         setLoading(true);
-        axios.get(NASA_APOD_URL)
+        axios.get(`https://api.nasa.gov/planetary/apod?api_key=${NASA_API_KEY}&date=${fetchDate}`)
             .then(response => {
                 setNews(response.data);
                 setLoading(false);
             })
             .catch(err => {
-                setError(err);
-                setLoading(false);
+                if (err.response && err.response.status === 404) {
+                    const previousDate = new Date(fetchDate);
+                    previousDate.setDate(previousDate.getDate() - 1);
+                    fetchData(previousDate.toISOString().split('T')[0]); 
+                } else {
+                    setError(err);
+                    setLoading(false);
+                }
             });
-    }, [NASA_APOD_URL]);
+    };
+
+    useEffect(() => {
+        fetchData(date);
+    }, [date]);
 
     const handlePreviousDay = () => {
         const previousDate = new Date(date);

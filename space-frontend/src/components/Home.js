@@ -4,6 +4,7 @@ import './Home.css';
 import Carousel from './Carousel';
 import SolarSystem from '../3D models/SolarSystem';
 const Home = () => {
+
     return (
         <div>
             <Carousel />
@@ -20,6 +21,12 @@ const Home = () => {
                 </video>
                 <h1>Rockets</h1>
                 <Link to="/rocket">
+                <button className="know-more-button">Know More</button>
+                </Link>
+            </div>
+            <div className="video-section">
+                <h1>News & Updates</h1>                
+                <Link to="/news">
                 <button className="know-more-button">Know More</button>
                 </Link>
             </div>
