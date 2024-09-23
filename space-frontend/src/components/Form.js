@@ -16,13 +16,13 @@ function Form({ route, method }) {
   const Extra = () => {
     if (method === "login") {
       return (
-        <p>
+        <p style={{color:"white"}}>
           Don't have an account? <a href="/register">Register</a>
         </p>
       );
     } else {
       return (
-        <p>
+        <p style={{color:"white"}}>
           Already have an account? <a href="/login">Login</a>
         </p>
       );
@@ -57,7 +57,7 @@ function Form({ route, method }) {
       }}
     >
       <form onSubmit={handleSubmit} className="form-container">
-        <h1>{name}</h1>
+        <h1 style={{color:"white"}}>{name}</h1>
         <input
           className="form-input"
           type="text"

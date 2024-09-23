@@ -4,8 +4,6 @@ import './Home.css';
 import Carousel from './Carousel';
 import SolarSystem from '../3D models/SolarSystem';
 const Home = () => {
-    
-    
     return (
         <div>
             <Carousel />
